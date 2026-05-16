@@ -62,6 +62,11 @@ function clearCanvas() {
       document.getElementById("display-area").style.display = isAI ? "none"  : "block";
       document.getElementById("message-app").style.display  = isAI ? "none"  : "block";
       document.querySelector(".toggle").style.display       = "flex";
+
+         if (isAI) {
+      setTimeout(() => resizeCanvas(), 50);
+    }
+    
     });
   });
 
