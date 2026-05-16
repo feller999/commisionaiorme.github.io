@@ -7,7 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const ctx = canvas.getContext("2d");
   let drawing = false;
 
-  canvas.addEventListener("mousedown", () => drawing = true);
+  canvas.addEventListener("mousedown", (e) => {
+  drawing = true;
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const x = (e.clientX - rect.left) * scaleX;
+  const y = (e.clientY - rect.top) * scaleY;
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+});
   canvas.addEventListener("mouseup", () => { drawing = false; ctx.beginPath(); });
   canvas.addEventListener("mousemove", (e) => {
     if (!drawing) return;
