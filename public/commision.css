@@ -303,3 +303,8 @@ canvas {
     object-fit: contain; /* Prevents stretching */
     display: block;      /* Removes extra bottom margin */
 }
+
+#drawing-canvas {
+  width: 100%;
+  height: 400px;
+}
